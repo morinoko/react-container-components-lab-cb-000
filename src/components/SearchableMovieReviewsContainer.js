@@ -20,7 +20,7 @@ class SearchableMovieReviewsContainer extends Component {
     event.preventDefault();
     const query = this.state.searchTerm;
     
-    fetch(URL+`&query=${query}`)
+    fetch(URL + `&query=${query}`)
       .then(response => response.json())
       .then(json => this.setState({ reviews: json.results })
     );
@@ -37,7 +37,11 @@ class SearchableMovieReviewsContainer extends Component {
       <div className="searchable-movie-reviews">
         <form onSubmit={this.handleSubmit}>
           <label>Search term:</label>
-          <input type="text" onChange={this.handleInputChange} /><br />
+          <input
+            id="search-input"
+            type="text"
+            onChange={this.handleInputChange}
+          />
           <button type="submit">Submit</button>
         </form>
         
@@ -46,7 +50,7 @@ class SearchableMovieReviewsContainer extends Component {
         }
         <MovieReviews reviews={this.state.reviews} />
       </div>
-    )
+    );
   }
 }
 
