@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
 const Review = (props) => {
-  return <li key={props.display_title}>{props.headline}</li>
+  return (
+    <div key={props.headline} className="review">{props.headline}</div>
+  )
 };
 
 const MovieReviews = (props) => {
   return (
-    <ul className="review-list">
+    <div className="review-list">
       {props.reviews.map(Review)}
-    </ul>
+    </div>
   )
 };
 
