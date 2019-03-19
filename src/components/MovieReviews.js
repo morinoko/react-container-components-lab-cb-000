@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Component } from 'react';
 
 const Review = (props) => {
@@ -18,13 +17,3 @@ MovieReviews.defaultProps = {
 };
 
 export default MovieReviews;
-=======
-// Code MovieReviews Here
-const MovieReview = (props) => {
-  <ul className="review-list">
-  
-  </ul>
-};
-
-export default MovieReview;
->>>>>>> cc7df9ab9c1e49d4a2c57e4563d05333f806a5c8
