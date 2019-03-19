@@ -12,8 +12,4 @@ const MovieReviews = (props) => {
   )
 };
 
-MovieReviews.defaultProps = {
-  reviews: []
-};
-
 export default MovieReviews;
