@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 const Review = (props) => {
   return (
-    <div key={props.headline} className="review">{props.headline}>
+    <div key={props.headline} className="review">
+      <h3>{props.byline}</h3>>
       <p>{props.summary_short{</p>
     </div>
   )
