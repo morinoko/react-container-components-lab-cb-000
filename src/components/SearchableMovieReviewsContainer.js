@@ -20,7 +20,7 @@ class SearchableMovieReviewsContainer extends Component {
     event.preventDefault();
     const query = this.state.searchTerm;
     
-    fetch(URL+`&query=${query}`)
+    fetch(URL + `&query=${query}`)
       .then(response => response.json())
       .then(json => this.setState({ reviews: json.results })
     );
