@@ -1,8 +1,19 @@
-// Code MovieReviews Here
-const MovieReview = (props) => {
-  <ul className="review-list">
-  
-  </ul>
+import React, { Component } from 'react';
+
+const Review = (props) => {
+  return <li key={props.display_title}>{props.headline}</li>
 };
 
-export default MovieReview;
+const MovieReviews = (props) => {
+  return (
+    <ul className="review-list">
+      {props.reviews.map(Review)}
+    </ul>
+  )
+};
+
+MovieReviews.defaultProps = {
+  reviews: []
+};
+
+export default MovieReviews;

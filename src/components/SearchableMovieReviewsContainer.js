@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import 'isomorphic-fetch';
 import MovieReviews from './MovieReviews'
 
-const NYT_API_KEY = 'f98593a095b44546bf4073744b540da0';
-const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/all.json?'
+const NYT_API_KEY = 'Iu5OvsSMnrfFVzTJ8aHzsqIl2GO8GLgg';
+const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
             + `api-key=${NYT_API_KEY}`;
 
-// Code SearchableMovieReviewsContainer Here
 class SearchableMovieReviewsContainer extends Component {
   constructor() {
     super();
@@ -17,9 +16,35 @@ class SearchableMovieReviewsContainer extends Component {
     }
   }
   
+  handleSubmit = event => {
+    event.preventDefault();
+    const query = this.state.searchTerm;
+    
+    fetch(URL+`&query=${query}`)
+      .then(response => response.json())
+      .then(json => this.setState({ reviews: json.results })
+    );
+  }
+  
+  handleInputChange = event => {
+    this.setState({
+      searchTerm: event.target.value
+    });
+  }
+  
   render() {
     return (
       <div className="searchable-movie-reviews">
+        <form onSubmit={this.handleSubmit}>
+          <label>Search term:</label>
+          <input type="text" onChange={this.handleInputChange} /><br />
+          <button type="submit">Submit</button>
+        </form>
+        
+        {this.state.reviews.length > 0 &&
+          <h2>Review Search Results</h2>
+        }
+        <MovieReviews reviews={this.state.reviews} />
       </div>
     )
   }
