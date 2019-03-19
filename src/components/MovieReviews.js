@@ -1,5 +1,3 @@
-import React, { Component } from 'react';
-
 const Review = (props) => {
   return <li key={props.display_title}>{props.headline}</li>
 };
