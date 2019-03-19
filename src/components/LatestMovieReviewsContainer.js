@@ -12,7 +12,7 @@ class LatestMovieReviewsContainer extends Component {
     
     this.state = {
       reviews: []
-    }
+    };
   }
   
   componentWillMount() {
